@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>Gulp压缩</title>
+      <link href="/2022/01/12/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Gulp%E5%8E%8B%E7%BC%A9/Gulp%E5%8E%8B%E7%BC%A9/"/>
+      <url>/2022/01/12/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Gulp%E5%8E%8B%E7%BC%A9/Gulp%E5%8E%8B%E7%BC%A9/</url>
+      
+        <content type="html"><![CDATA[<h2 id="官方网站"><a href="#官方网站" class="headerlink" title="官方网站"></a>官方网站</h2><p>Gulp中文网：<a href="https://www.gulpjs.com.cn/">https://www.gulpjs.com.cn/</a></p><h2 id="检查node、npm和npx是否正确安装"><a href="#检查node、npm和npx是否正确安装" class="headerlink" title="检查node、npm和npx是否正确安装"></a>检查node、npm和npx是否正确安装</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -<span class="literal">-version</span></span><br><span class="line">npm -<span class="literal">-version</span></span><br><span class="line">npx -<span class="literal">-version</span></span><br></pre></td></tr></table></figure><img src="./1.png" alt="Gulp下载完成" style="zoom:100%;" /><h2 id="安装Gulp"><a href="#安装Gulp" class="headerlink" title="安装Gulp"></a>安装Gulp</h2><p>先安装gulp命令行工具</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -<span class="literal">-global</span> gulp<span class="literal">-cli</span></span><br></pre></td></tr></table></figure><p>运行成功后PowerShell显示内容如下</p><img src="./2.png" alt="Gulp下载完成" style="zoom:60%;" /><p>再安装gulp，g是global的简写</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp <span class="literal">-g</span></span><br></pre></td></tr></table></figure><h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><h3 id="压缩HTML"><a href="#压缩HTML" class="headerlink" title="压缩HTML"></a>压缩HTML</h3><p>使用gulp-htmlclean和gulp-html-minifier-terser来压缩HTML</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp<span class="literal">-htmlclean</span> -<span class="literal">-save</span><span class="literal">-dev</span></span><br><span class="line">npm install -<span class="literal">-save</span> gulp<span class="literal">-html</span><span class="literal">-minifier</span><span class="literal">-terser</span></span><br></pre></td></tr></table></figure><h3 id="压缩CSS"><a href="#压缩CSS" class="headerlink" title="压缩CSS"></a>压缩CSS</h3><p>使用gulp-clean-css来压缩CSS</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp<span class="literal">-clean</span><span class="literal">-css</span> -<span class="literal">-save</span><span class="literal">-dev</span></span><br></pre></td></tr></table></figure><h3 id="压缩JS"><a href="#压缩JS" class="headerlink" title="压缩JS"></a>压缩JS</h3><p>由于Butterfly主题中的JS使用了部分ES6语法，因此不能值使用gulp-uglify来压缩，还需要gulp-babel</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -<span class="literal">-save</span><span class="literal">-dev</span> gulp<span class="literal">-uglify</span></span><br><span class="line">npm install -<span class="literal">-save</span><span class="literal">-dev</span> gulp<span class="literal">-babel</span> @babel/core @babel/p<span class="built_in">reset-env</span></span><br></pre></td></tr></table></figure><h3 id="压缩图片"><a href="#压缩图片" class="headerlink" title="压缩图片"></a>压缩图片</h3><p>使用gulp-imagemin来压缩图片</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -<span class="literal">-save</span><span class="literal">-dev</span> gulp<span class="literal">-imagemin</span></span><br></pre></td></tr></table></figure><h2 id="创建gulpfile文件"><a href="#创建gulpfile文件" class="headerlink" title="创建gulpfile文件"></a>创建gulpfile文件</h2><p>来源于：<a href="https://blog.csdn.net/qq_49821579/article/details/113488025">https://blog.csdn.net/qq_49821579/article/details/113488025</a></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> minifyCSS = <span class="built_in">require</span>(<span class="string">&#x27;gulp-minify-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlminify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-html-minify&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩js</span></span><br><span class="line">gulp.task(<span class="string">&#x27;minify-js&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line"> <span class="keyword">return</span> gulp.src(<span class="string">&#x27;./*.js&#x27;</span>) </span><br><span class="line"> .pipe(uglify())</span><br><span class="line"> .pipe(gulp.dest(<span class="string">&#x27;./&#x27;</span>)) </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩css</span></span><br><span class="line">gulp.task(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="keyword">return</span> gulp.src(<span class="string">&#x27;./*.css&#x27;</span>)</span><br><span class="line"> .pipe(minifyCSS())</span><br><span class="line"> .pipe(gulp.dest(<span class="string">&#x27;./&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩html</span></span><br><span class="line">gulp.task(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">&#x27;./*.html&#x27;</span>)</span><br><span class="line">    .pipe(htmlminify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./&#x27;</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>修改package.json中<code>&quot;server&quot;: &quot;hexo server&quot;</code>为<code>&quot;server&quot;: &quot;hexo clean &amp;&amp; hexo generate &amp;&amp; gulp &amp;&amp; hexo server&quot;</code><br>执行命令行</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run server</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Blog </tag>
+            
+            <tag> Gulp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Kibana的安装教程</title>
+      <link href="/2022/01/12/%E8%BD%AF%E4%BB%B6/Kibana/Kibana%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Kibana%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+      <url>/2022/01/12/%E8%BD%AF%E4%BB%B6/Kibana/Kibana%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/Kibana%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-下载并解压"><a href="#1-下载并解压" class="headerlink" title="1.下载并解压"></a>1.下载并解压</h2><p>Kibana官方下载网站：<a href="https://www.elastic.co/cn/downloads/kibana">Download Kibana Free | Get Started Now | Elastic</a></p><img src="./1.png" alt="下载界面" style="zoom:60%;" /><p>由于本人使用的是Windows系统，直接选择Windows平台并下载相应的zip文件。下载完zip文件后可以解压到你想放置的位置，我个人是将其放到了D盘。</p><img src="./2.png" style="zoom:67%;" /><h2 id="2-Kibana的配置"><a href="#2-Kibana的配置" class="headerlink" title="2. Kibana的配置"></a>2. Kibana的配置</h2><p>找到config文件夹中的kibana.yml文件，用编辑器打开，我这里选用的是vscode。</p><h2 id="3-运行Kibana"><a href="#3-运行Kibana" class="headerlink" title="3. 运行Kibana"></a>3. 运行Kibana</h2><h2 id="4-打开Kibana"><a href="#4-打开Kibana" class="headerlink" title="4. 打开Kibana"></a>4. 打开Kibana</h2><h2 id="5-深入学习Kibana"><a href="#5-深入学习Kibana" class="headerlink" title="5. 深入学习Kibana"></a>5. 深入学习Kibana</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Elastic </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Kibana </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>代码演示</title>
       <link href="/2022/01/11/%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA/"/>
       <url>/2022/01/11/%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA/</url>
@@ -24,6 +76,18 @@
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
+      <categories>
+          
+          <category> 1 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 1 </tag>
+            
+        </tags>
       
     </entry>
     
