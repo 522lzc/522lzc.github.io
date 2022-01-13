@@ -10,8 +10,8 @@
 }
   
 ::-webkit-scrollbar-thumb {
-    /* background-color: #49b1f5; */
-    background-color: #b4df49;
+    background-color: #49b1f5;
+    /* background-color: #42839f; */
     background-image: -webkit-linear-gradient(
         45deg,
         rgba(255, 255, 255, 0.4) 25%,
@@ -31,8 +31,8 @@
 
 ::-moz-selection {
     color: #fff;
-    /* background-color: #49b1f5; */
-    background-color: #b4df49;
+    background-color: #49b1f5;
+    /* background-color: #b4df49; */
 }
 
 
