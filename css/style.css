@@ -1,0 +1,30 @@
+#content-inner {
+    --light_bg_color: hsla(0,0%,100%,0.6);
+    --dark_bg_color: rgba(18,18,18,0.8);
+    --light_page_color: hsla(0,0%,100%,0.5);
+    --dark_page_color: rgba(18,18,18,0.8);
+}
+
+#footer {
+    background: hsla(0,0%,100%,.15);
+    /* opacity: 0.5; */
+}
+
+#footer-wrap {
+    color: black;
+}
+
+#footer-wrap a {
+    color: black;
+}
+
+/* 文章页背景 */
+.layout_post>#post {
+    /* 以下代表白色透明度为0.3 */
+    background: rgba(255,255,255,.3);
+}
+/* 所有背景（包括首页卡片、文章页、页面页等） */
+#aside_content .card-widget, #recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page, .layout_post>#post, .read-mode .layout_post>#post{
+    /* 以下代表白色透明度为0.3 */
+    background: rgba(255,255,255,.3);
+}
