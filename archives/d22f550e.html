@@ -1,0 +1,554 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>量子力学笔记（三） | Mark的博客</title><meta name="keywords" content="物理 量子力学"><meta name="author" content="Mark"><meta name="copyright" content="Mark"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hilbert Space   The state of a system is represented by its wave function,  observables are represented by operators   Wave functions live in Hilbert space   the set of all square-integrable functions">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量子力学笔记（三）">
+<meta property="og:url" content="https://522lzc.github.io/archives/d22f550e.html">
+<meta property="og:site_name" content="Mark的博客">
+<meta property="og:description" content="Hilbert Space   The state of a system is represented by its wave function,  observables are represented by operators   Wave functions live in Hilbert space   the set of all square-integrable functions">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg">
+<meta property="article:published_time" content="2022-01-14T07:36:22.000Z">
+<meta property="article:modified_time" content="2022-01-14T08:18:44.725Z">
+<meta property="article:author" content="Mark">
+<meta property="article:tag" content="物理 量子力学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg"><link rel="shortcut icon" href="/./img/avatar.jpeg"><link rel="canonical" href="https://522lzc.github.io/archives/d22f550e"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-Qr2ZaZHgWp"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"这篇文章最后更新于","messageNext":"天前，文章内容可能过时，请参阅最新的相关文章!"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Mark","link":"链接: ","source":"来源: Mark的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '量子力学笔记（三）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-14 16:18:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/cursor.css"><link rel="stylesheet" href="/css/scrollbar.css"><meta name="generator" content="Hexo 6.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-file-alt"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 找链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-star"></i><span> 收藏网址</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Mark的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-file-alt"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 找链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-star"></i><span> 收藏网址</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">量子力学笔记（三）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-14T07:36:22.000Z" title="发表于 2022-01-14 15:36:22">2022-01-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-14T08:18:44.725Z" title="更新于 2022-01-14 16:18:44">2022-01-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">890</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="量子力学笔记（三）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Hilbert-Space">Hilbert Space</h2>
+<ul>
+<li>
+<p>The <strong>state</strong> of a system is represented by its wave function,  <strong>observables</strong> are represented by operators</p>
+</li>
+<li>
+<p>Wave functions live in Hilbert space</p>
+<ul>
+<li>
+<p>the set of all <strong>square-integrable</strong> functions</p>
+<ul>
+<li>$\int_a^b|f(x)|^2dx$</li>
+<li>$\int|\Psi|^2dx=1$</li>
+</ul>
+</li>
+<li>
+<p>inner product of two functions</p>
+<ul>
+<li>$\lang f|g\rang \equiv \int_a^b f(x)^*g(x)dx$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Observables">Observables</h2>
+<ul>
+<li>
+<p>$\lang Q\rang=\lang\Psi|\hat{Q}\Psi\rang$</p>
+</li>
+<li>
+<p>Hermitian Operator</p>
+<ul>
+<li>
+<p>$\left \langle f|\hat{Q}g\right \rangle=\left \langle \hat{Q}f|g\right \rangle $for all f(x) and all g(x)</p>
+<blockquote>
+<p>the outcome of measurement has got be real</p>
+</blockquote>
+</li>
+<li>
+<p>Observables are represented by hermitian operator</p>
+<ul>
+<li>$\hat{Q}=\hat{Q}^\dagger$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Determinate States</p>
+<ul>
+<li>Determinate states of $Q$ are eigenfunctions of $\hat{Q}$
+<ul>
+<li>$\hat{Q}\Psi=q\Psi$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Eigenfunctions-Of-A-Hermitian-Operator">Eigenfunctions Of A Hermitian Operator</h2>
+<ul>
+<li>
+<p>Discrete Spectra</p>
+<ul>
+<li>
+<p>Theorem1: Their eigenvalues are real</p>
+</li>
+<li>
+<p>Theorem2: Eigenfunctions belonging to distinct eigenvalues are orthogonal</p>
+<ul>
+<li>for degenerate state, we can use the <strong>Gram-Schmidt orthogonalization proedure</strong> to construct orthogonal eigenfunctions within each degenerate space</li>
+</ul>
+</li>
+<li>
+<p>Axiom: The eigenfunctions of an observable operator are complete</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Continuous Spectra</p>
+<ul>
+<li>基矢间的关系、态函数向基矢投影得到系数</li>
+</ul>
+</li>
+<li>
+<table>
+<thead>
+<tr>
+<th>Discrete Spectra</th>
+<th>Continuous Spectra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$&lt;f</td>
+<td>f&gt;=\int_a^b</td>
+</tr>
+<tr>
+<td>$&lt;f_m</td>
+<td>f_n&gt;=\delta_{mn}$</td>
+</tr>
+<tr>
+<td>$f(x)=\sum_{n=1}^{\infin}c_nf_n(x)$</td>
+<td>$f(x)=\int_{-\infin}^{\infin}c§f_p(x)dp$</td>
+</tr>
+<tr>
+<td>$c_n=&lt;f_n</td>
+<td>f&gt;$</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 id="Generalized-Statistical-Interpretation">Generalized Statistical Interpretation</h2>
+<ul>
+<li>If you measure an observable $Q(x,p)$ on a particle in the state $\Psi(x,t)$, you are certain to get one of the eigenvalues of the hermitian operator $\hat{Q}(x,-i\hbar d/dx)$
+<ul>
+<li>If the spectrum of $\hat{Q}$ is discrete, the probability of getting the particular eigenvalues $q_n$ associated with the (orthonormalized) eigenfunctions $f_n(x)$ is
+<ul>
+<li>$|c_n|^2 $     where    $c_n=\lang f_n|\Psi\rang$</li>
+</ul>
+</li>
+<li>If the spectrum of $\hat{Q}$ is continuous, with real eigenvalues $q(z)$ and associated (Dirac-orthonormalized) eigenfunctions $f_z(x)$, the probability of getting a result in the range $dz$ is
+<ul>
+<li>$|c(z)|^2dz $      where   $c(z)=\lang f_z|\Psi\rang$</li>
+<li>$\Psi(y,t)=\lang g_y|\Psi\rang$</li>
+<li>$\Phi(p,t)=\lang f_p|\Psi\rang$</li>
+<li>能否根据归一化得出$\int|c(z)|^2dz=1$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="The-Uncertainty-Principle">The Uncertainty Principle</h2>
+<ul>
+<li>
+<p>$\sigma_A^2\sigma_B^2\ge(\frac{1}{2i}\langle [\hat A, \hat B]\rangle)^2$</p>
+<ul>
+<li>the commutator of two hermitian operators is itself anti-hermitian$(\hat{Q}^\dagger=-\hat{Q})$, and its expectation value is imaginary</li>
+</ul>
+</li>
+<li>
+<p>incompatible observables</p>
+<ul>
+<li>
+<p>observables whose operators do not commute</p>
+</li>
+<li>
+<p>do not have shared eigenfunctions</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The Minimum-Uncertainty Wave Packet</p>
+<ul>
+<li>
+<p>$g(x)=iaf(x)$, where $a$ is real</p>
+<ul>
+<li>不等号成立的条件</li>
+</ul>
+</li>
+<li>
+<p>$(\hat{A}-\langle A\rangle)\Psi=ia(\hat{B}-\langle B\rangle)$</p>
+</li>
+<li>
+<p>Gaussian wave packet</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The Energy-Time Uncertainty Principle</p>
+<ul>
+<li>energy-time uncertainty principle
+<ul>
+<li>$\Delta t\Delta E\ge\frac{\hbar}{2}$</li>
+<li>$\Delta t=\frac{\sigma_Q}{|d\lang Q\rang/dt|}$</li>
+</ul>
+</li>
+<li>generalized Ehrenfest theorem
+<ul>
+<li>$\frac{d}{dt}\lang Q\rang=\frac{i}{\hbar}\lang [\hat{iH},\hat{Q}]\rang+\lang \frac{\partial \hat{Q}}{\partial t}\rang$</li>
+<li>$\sigma_H\sigma_Q\ge\frac{\hbar}{2}|\frac{d\lang Q\rang}{dt}|$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Vectors-and-Operators">Vectors and Operators</h2>
+<ul>
+<li>Bases in Hilbert Space
+<ul>
+<li>the wave function is the component in the expansion of $|\mathcal{S}(t)\rang$ in the basis of corresponding eigenfunctions
+<ul>
+<li>$\Psi(x,t)=\lang x|\mathcal{S}(t)\rang$</li>
+<li>$\Phi(p,t)=\lang p|\mathcal{S}(t)\rang$</li>
+<li>$c_n(t)=\lang n|\mathcal{S}(t)\rang$</li>
+</ul>
+</li>
+<li>linear combination
+<ul>
+<li>$|\mathcal{S}(t)\rang=\int\Psi(y,t)\delta(x-y)dy=\int\Phi(p,t)\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}dp=\sum c_ne^{-iE_nt/\hbar\psi_n(x)}$</li>
+<li>in position space, $\hat{x}-x$, $|x\rang-\delta(x-y)$, $component-\Psi(x,t)$, $\mathcal{S}(t)-\Psi(x,t)$</li>
+<li>$|\mathcal{S}(t)\rang$大概就是一个抽象的态，在不同空间表示不同</li>
+</ul>
+</li>
+<li>operators (representing observables) are linear transformations on Hilbert space
+<ul>
+<li>$\lang e_m|\hat{Q}|e_n\rang\equiv Q_{mn}$</li>
+<li>$b_m=\sum_nQ_{mn}a_n$</li>
+</ul>
+</li>
+<li>operators look different when expressed in different bases
+<ul>
+<li>$\hat{x}=\left{\begin{matrix} x \ i\hbar\partial/\partial p \end{matrix}\right.$</li>
+<li>$\hat{p}=\left{\begin{matrix} -i\hbar\partial/\partial x \ p \end{matrix}\right.$</li>
+</ul>
+</li>
+<li>actually, some systems admit only a finite number $N$ of linearly independent states</li>
+</ul>
+</li>
+<li>Dirac Notation
+<ul>
+<li>bra and ket
+<ul>
+<li>$\lang f|=\int f^*[…]dx$</li>
+<li>$\lang\alpha|\to(a_1^<em>a_2^</em>…a_n^*)$</li>
+<li>dual space</li>
+</ul>
+</li>
+<li>operator
+<ul>
+<li>projection operator
+<ul>
+<li>$\hat{P}\equiv|\alpha\rang\lang\alpha|$</li>
+<li>idempotent: $\hat{P}^2=\hat{P}$</li>
+</ul>
+</li>
+<li>identity operator (completeness)
+<ul>
+<li>$\sum_n|e_n\rang\lang e_n|=1$</li>
+<li>$\int|e_z\rang\lang e_z|dz=1$</li>
+</ul>
+</li>
+<li>spectral decomposition
+<ul>
+<li>$\hat{Q}=\sum_nq_n|e_n\rang\lang e_n|$</li>
+</ul>
+</li>
+<li>functions of operators
+<ul>
+<li>$f(\hat{Q})=\sum_nf(q_n)|e_n\rang\lang e_n|$</li>
+<li>$e^{\hat{Q}}\equiv1+\hat{Q}+\frac{1}{2}\hat{Q}^2+\frac{1}{3!}\hat{Q}^3+…$</li>
+<li>$\frac{1}{1-\hat{Q}}\equiv1+\hat{Q}+\hat{Q}^2+\hat{Q}^3+\hat{Q}^4+…$</li>
+<li>$ln(1+\hat{Q})\equiv\hat{Q}-\frac{1}{2}\hat{Q}^2+\frac{1}{3}\hat{Q}^3-\frac{1}{4}\hat{Q}^4+…$</li>
+</ul>
+</li>
+<li>Changing Bases In Dirac Notation
+<ul>
+<li>利用恒等算符方便换基底</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="希尔伯特空间、内积、算符、基矢、系数">希尔伯特空间、内积、算符、基矢、系数</h2>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">Mark</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://522lzc.github.io/archives/d22f550e.html">https://522lzc.github.io/archives/d22f550e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://522lzc.github.io" target="_blank">Mark的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%89%A9%E7%90%86-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">物理 量子力学</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/archives/9f31f65c.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">量子力学笔记（二）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/af271a84.html" title="量子力学笔记（一）"><img class="cover" src="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-14</div><div class="title">量子力学笔记（一）</div></div></a></div><div><a href="/archives/9f31f65c.html" title="量子力学笔记（二）"><img class="cover" src="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-14</div><div class="title">量子力学笔记（二）</div></div></a></div><div><a href="/archives/4098fbf3.html" title="量子力学笔记（零）"><img class="cover" src="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-14</div><div class="title">量子力学笔记（零）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NTIwNS8zMTY3Mg=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mark</div><div class="author-info__description">尝试搭建博客中......</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/522lzc"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/522lzc" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">博客建设ing...</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hilbert-Space"><span class="toc-number">1.</span> <span class="toc-text">Hilbert Space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Observables"><span class="toc-number">2.</span> <span class="toc-text">Observables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Eigenfunctions-Of-A-Hermitian-Operator"><span class="toc-number">3.</span> <span class="toc-text">Eigenfunctions Of A Hermitian Operator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generalized-Statistical-Interpretation"><span class="toc-number">4.</span> <span class="toc-text">Generalized Statistical Interpretation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Uncertainty-Principle"><span class="toc-number">5.</span> <span class="toc-text">The Uncertainty Principle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vectors-and-Operators"><span class="toc-number">6.</span> <span class="toc-text">Vectors and Operators</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E4%BC%AF%E7%89%B9%E7%A9%BA%E9%97%B4%E3%80%81%E5%86%85%E7%A7%AF%E3%80%81%E7%AE%97%E7%AC%A6%E3%80%81%E5%9F%BA%E7%9F%A2%E3%80%81%E7%B3%BB%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">希尔伯特空间、内积、算符、基矢、系数</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/d22f550e.html" title="量子力学笔记（三）"><img src="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="量子力学笔记（三）"/></a><div class="content"><a class="title" href="/archives/d22f550e.html" title="量子力学笔记（三）">量子力学笔记（三）</a><time datetime="2022-01-14T07:36:22.000Z" title="发表于 2022-01-14 15:36:22">2022-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/9f31f65c.html" title="量子力学笔记（二）"><img src="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="量子力学笔记（二）"/></a><div class="content"><a class="title" href="/archives/9f31f65c.html" title="量子力学笔记（二）">量子力学笔记（二）</a><time datetime="2022-01-14T07:36:11.000Z" title="发表于 2022-01-14 15:36:11">2022-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/af271a84.html" title="量子力学笔记（一）"><img src="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="量子力学笔记（一）"/></a><div class="content"><a class="title" href="/archives/af271a84.html" title="量子力学笔记（一）">量子力学笔记（一）</a><time datetime="2022-01-14T07:36:00.000Z" title="发表于 2022-01-14 15:36:00">2022-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/4098fbf3.html" title="量子力学笔记（零）"><img src="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="量子力学笔记（零）"/></a><div class="content"><a class="title" href="/archives/4098fbf3.html" title="量子力学笔记（零）">量子力学笔记（零）</a><time datetime="2022-01-14T07:35:39.000Z" title="发表于 2022-01-14 15:35:39">2022-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/e81da0b9.html" title="hexo-abbrlink插件配置"><img src="https://cdn.jsdelivr.net/gh/522lzc/image-host/img/cover/default_bg4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo-abbrlink插件配置"/></a><div class="content"><a class="title" href="/archives/e81da0b9.html" title="hexo-abbrlink插件配置">hexo-abbrlink插件配置</a><time datetime="2022-01-12T12:13:57.000Z" title="发表于 2022-01-12 20:13:57">2022-01-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By Mark</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><div>感谢您的访问🤞</div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (true) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
