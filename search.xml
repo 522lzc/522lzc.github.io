@@ -20,7 +20,9 @@
       
         <tags>
             
-            <tag> 物理 量子力学 </tag>
+            <tag> 物理 </tag>
+            
+            <tag> 量子力学 </tag>
             
         </tags>
       
@@ -45,7 +47,9 @@
       
         <tags>
             
-            <tag> 物理 量子力学 </tag>
+            <tag> 物理 </tag>
+            
+            <tag> 量子力学 </tag>
             
         </tags>
       
@@ -70,7 +74,9 @@
       
         <tags>
             
-            <tag> 物理 量子力学 </tag>
+            <tag> 物理 </tag>
+            
+            <tag> 量子力学 </tag>
             
         </tags>
       
@@ -83,7 +89,7 @@
       <link href="/archives/4098fbf3.html"/>
       <url>/archives/4098fbf3.html</url>
       
-        <content type="html"><![CDATA[<div class="note orange icon flat"><i class="note-icon fas fa-bullhorn"></i><p>这个系列时学量力时记的笔记，很多内容当时没写，只能占个坑以后再填。</p></div>]]></content>
+        <content type="html"><![CDATA[<div class="note orange icon flat"><i class="note-icon fas fa-bullhorn"></i><p>这个系列时学量力时记的笔记，主要参考的是格里菲斯，很多内容当时没写，只能占个坑以后再填。</p></div>]]></content>
       
       
       <categories>
@@ -95,7 +101,9 @@
       
         <tags>
             
-            <tag> 物理 量子力学 </tag>
+            <tag> 物理 </tag>
+            
+            <tag> 量子力学 </tag>
             
         </tags>
       
@@ -222,9 +230,9 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> Blog </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
